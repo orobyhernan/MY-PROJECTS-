@@ -1,0 +1,25 @@
+/*First let's define our main variable */
+val = 200
+/*Now let's define the variable that will change the result of the checkA variable later on */
+secVal = 3
+
+function timesThree(num) { //Now we define a function that multiples an input times three to apply it later to val
+  return num * 3;
+}
+
+//Now the following function is going to compare the result of multiplying 'val' times secVal with the result of applying timesThree function to 'val'
+
+function checkIfFunctionWorks(timesThree, val) {   //we take the previous timesThree function and val as parameters
+  var checkA = val * secVal; // The first operation, that can be changed by changing the value of the variable secVal
+  var checkB = timesThree(val); /*This variable calls the first function from outside, timesThree() that multiplies our variable times 3 */
+  if (checkA === checkB) {   /* This statement checks wether both functions return the same result*/
+    console.log("Function works correctly");
+    console.log('The result for this operation is: ' + timesThree(val)); // This prints out the result
+  } else {
+    console.log("Inconsistent results");  // Both functions return a different result because the value of the variable secVal has been modified. 
+    console.log('the result for first operation is: ' + checkA);
+    console.log('The result for the second operation is ' + checkB) // The last two console log instances print out the different results from both functions
+  }
+}
+
+checkIfFunctionWorks(timesThree, val); // Example usage
